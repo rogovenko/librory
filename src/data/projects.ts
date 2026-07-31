@@ -29,7 +29,7 @@ export interface Project {
 export const projects: Project[] = [
   {
     slug: 'deep-sand-maze',
-    title: 'Deep Sand Maze',
+    title: 'Deep Sand Puzzle',
     year: '2026',
     role: 'Lead Developer, Original Concept',
     platforms: 'iOS, Android',
@@ -39,30 +39,47 @@ export const projects: Project[] = [
     images: [
       {
         src: '/projects/sand/maze1.webp',
-        alt: 'Deep Sand Maze — character navigating a stone maze board',
-        width: 810,
+        alt: 'Deep Sand Puzzle — lobby with the hooded hero and GO button',
+        width: 662,
         height: 1440,
       },
       {
         src: '/projects/sand/maze2.webp',
-        alt: 'Deep Sand Maze — desert-themed hero customization screen',
-        width: 810,
+        alt: 'Deep Sand Puzzle — cave maze level with a treasure chest objective',
+        width: 662,
         height: 1440,
       },
       {
         src: '/projects/sand/maze3.webp',
-        alt: 'Deep Sand Maze — quest and chest reward screen',
-        width: 810,
+        alt: 'Deep Sand Puzzle — maze worlds map screen for Ancient Temple',
+        width: 662,
         height: 1440,
       },
       {
         src: '/projects/sand/maze4.webp',
-        alt: 'Deep Sand Maze — inventory item with a trap-passing ability',
-        width: 810,
+        alt: 'Deep Sand Puzzle — rotating maze tiles to open a path',
+        width: 662,
+        height: 1440,
+      },
+      {
+        src: '/projects/sand/maze5.webp',
+        alt: 'Deep Sand Puzzle — pathfinding past an enemy on the board',
+        width: 662,
+        height: 1440,
+      },
+      {
+        src: '/projects/sand/maze6.webp',
+        alt: 'Deep Sand Puzzle — palace maze with guards, traps and chests',
+        width: 662,
         height: 1440,
       },
     ],
-    links: [],
+    links: [
+      {
+        label: 'Google Play',
+        href: 'https://play.google.com/store/apps/details?id=com.nomirage.deepsand',
+      },
+    ],
   },
   {
     slug: 'sidus-heroes-nidum',
