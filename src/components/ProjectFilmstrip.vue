@@ -48,7 +48,12 @@ function endDrag(event: PointerEvent) {
     @pointercancel="endDrag"
     @pointerleave="endDrag"
   >
-    <figure v-for="image in images" :key="image.src" class="frame">
+    <figure
+      v-for="image in images"
+      :key="image.src"
+      class="frame"
+      :style="{ aspectRatio: `${image.width} / ${image.height}` }"
+    >
       <img
         :src="image.src"
         :alt="image.alt"
@@ -103,7 +108,6 @@ function endDrag(event: PointerEvent) {
   flex: 0 0 auto;
   scroll-snap-align: start;
   height: 22rem;
-  aspect-ratio: 9 / 16;
   overflow: hidden;
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
@@ -114,7 +118,7 @@ function endDrag(event: PointerEvent) {
 .frame img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   pointer-events: none;
 }
 
