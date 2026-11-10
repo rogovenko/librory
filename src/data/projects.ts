@@ -33,9 +33,9 @@ export const projects: Project[] = [
     year: '2026',
     role: 'Lead Developer, Original Concept',
     platforms: 'iOS, Android',
-    tags: ['Puzzle', 'Wave Function Collapse', 'Level Generation', 'Mobile'],
+    tags: ['Unity', 'Puzzle', 'Mobile', 'Wave Function Collapse'],
     description:
-      "A puzzle game inspired by the board game Labyrinth and Arabic mythology and culture: the player rearranges maze tiles to open a path for the hero through the labyrinth. I came up with the concept and wrote nearly all of the code, from the first prototype to the shipped game — art and 3D were handled by other artists on the team. The hardest part was the level-building system, driven by wave function collapse, plus the waypoint systems for the player and the mobs.",
+      "A puzzle game inspired by the board game Labyrinth and Arabic mythology and culture: the player slides maze tiles to open a path for the hero through the labyrinth. We built the entire game in Unity. I came up with the concept and wrote nearly all of the code, from the first prototype to the shipped game — art and 3D were handled by other artists on the team. The hardest parts were using Wave Function Collapse to assemble the visuals for each puzzle layout and building waypoint navigation for the hero and enemies.",
     images: [
       {
         src: '/projects/sand/maze1.webp',
@@ -57,7 +57,7 @@ export const projects: Project[] = [
       },
       {
         src: '/projects/sand/maze4.webp',
-        alt: 'Duneloom Puzzle — rotating maze tiles to open a path',
+        alt: 'Duneloom Puzzle — sliding maze tiles to open a path',
         width: 662,
         height: 1440,
       },

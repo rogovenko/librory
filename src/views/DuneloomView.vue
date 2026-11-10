@@ -13,7 +13,7 @@ const project = projects.find(p => p.slug === 'deep-sand-maze')!
       <header>
         <p>{{ project.year }} · {{ project.platforms }}</p>
         <h1>Duneloom Puzzle</h1>
-        <p>Inspired by the board game Labyrinth and Arabic mythology, Duneloom Puzzle is a mobile puzzle game set in a shifting maze. Rotate its tiles to guide the hero past guards and traps to the treasure.</p>
+        <p>Inspired by the board game Labyrinth and Arabic mythology, Duneloom Puzzle is a mobile puzzle game set in a shifting maze. Slide its tiles to guide the hero past guards and traps to the treasure.</p>
         <div class="actions">
           <a class="action-pill" href="/duneloom/play/index.html">Play in browser →</a>
           <a v-for="link in project.links" :key="link.href" class="action-pill" :href="link.href" target="_blank" rel="noopener noreferrer">{{ link.label }} ↗</a>
@@ -34,14 +34,15 @@ const project = projects.find(p => p.slug === 'deep-sand-maze')!
     <section>
       <h2>My role</h2>
       <dl>
-        <dt>Concept and prototype</dt><dd>I conceived the game and built the first playable prototype to test the maze puzzle.</dd>
-        <dt>Gameplay and UI</dt><dd>I led code development and implemented the core mechanics, including tile rotation, waypoint navigation for the hero and enemies, and the game interface.</dd>
-        <dt>Level generation</dt><dd>I built the level generation system around Wave Function Collapse. Its rules constrain which tiles can sit next to one another as the maze takes shape.</dd>
-        <dt>Save data and localization</dt><dd>I implemented the systems that save player progress between sessions and display localized content.</dd>
+        <dt>Concept and prototype</dt><dd>I conceived the game and built the first playable prototype to test the tile-sliding mechanic. The client liked the prototype and funded development of the full game.</dd>
+        <dt>Gameplay and UI</dt><dd>I designed the project architecture and led development of the entire game in Unity. I implemented tile sliding, waypoint navigation for the hero and enemies, and the game UI.</dd>
+        <dt>Level visuals</dt><dd>I used Wave Function Collapse to turn each puzzle layout into a visible maze. The system selects tiles whose edges match their neighbors.</dd>
+        <dt>Save data and localization</dt><dd>I built the save system that preserves player progress between sessions. For localization, I set up a Google Sheets workflow so the team could review and update translations in one place.</dd>
         <dt>Analytics and monetization</dt><dd>I built the game's analytics module using Unity Gaming Services (UGS) and integrated a monetization module.</dd>
-        <dt>Mobile optimization</dt><dd>I profiled the game to identify performance bottlenecks, optimized graphics and visual effects, and reduced the game's footprint on disk.</dd>
+        <dt>Mobile optimization</dt><dd>I profiled the game on target devices and optimized graphics and visual effects, raising the frame rate from 12 to 30 FPS. I also reduced the game's size on disk.</dd>
         <dt>Gameplay capture</dt><dd>I recorded gameplay footage for promotional videos and ads.</dd>
         <dt>Store releases</dt><dd>I prepared the iOS build for the App Store and the Android build for Google Play, and helped the team publish the game on both stores.</dd>
+        <dt>Development time</dt><dd>3 months</dd>
       </dl>
     </section>
     <section><h2>Screenshots</h2><ProjectFilmstrip :images="project.images" /></section>
