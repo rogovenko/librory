@@ -1,8 +1,10 @@
 <script setup lang="ts">
 import { ref } from 'vue'
+import VideoPreview from './VideoPreview.vue'
 import type { ProjectImage } from '@/data/projects'
 
 defineProps<{
+  video?: string
   images: ProjectImage[]
 }>()
 
@@ -15,6 +17,7 @@ let startScrollLeft = 0
 function onPointerDown(event: PointerEvent) {
   // Touch/pen already get native scrolling; only emulate drag-to-scroll for a mouse.
   if (!trackEl.value || event.button !== 0 || event.pointerType !== 'mouse') return
+  if (event.target instanceof Element && event.target.closest('button, video')) return
   event.preventDefault()
   pointerId = event.pointerId
   startX = event.clientX
@@ -49,12 +52,13 @@ function endDrag(event: PointerEvent) {
     @pointerleave="endDrag"
   >
     <figure
-      v-for="image in images"
+      v-for="(image, index) in images"
       :key="image.src"
       class="frame"
       :style="{ aspectRatio: `${image.width} / ${image.height}` }"
     >
-      <img
+      <VideoPreview v-if="video && index === 0" :image="image" :src="video" />
+      <img v-else
         :src="image.src"
         :alt="image.alt"
         :width="image.width"

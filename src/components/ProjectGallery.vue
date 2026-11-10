@@ -2,9 +2,11 @@
 import { computed, onMounted, onUnmounted, ref, watch } from 'vue'
 import DiamondMark from './DiamondMark.vue'
 import ProjectMedia from './ProjectMedia.vue'
+import VideoPreview from './VideoPreview.vue'
 import type { ProjectImage } from '@/data/projects'
 
 const props = defineProps<{
+  video?: string
   images: ProjectImage[]
 }>()
 
@@ -82,7 +84,8 @@ function onStageKeydown(event: KeyboardEvent) {
 
 <template>
   <div ref="galleryEl" class="gallery">
-    <div
+    <VideoPreview v-if="video && activeIndex === 0 && activeImage" :image="activeImage" :src="video" />
+    <div v-else
       class="stage-wrapper"
       :class="{ clickable: hasMultiple }"
       :role="hasMultiple ? 'button' : undefined"

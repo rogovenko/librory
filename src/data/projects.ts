@@ -16,6 +16,7 @@ export interface ProjectImage {
 
 export interface Project {
   slug: string
+  video?: string
   casePath?: string
   title: string
   year: string
@@ -30,6 +31,7 @@ export interface Project {
 export const projects: Project[] = [
   {
     slug: 'deep-sand-maze',
+    video: '/duneloom/film.mp4',
     casePath: '/duneloom',
     title: 'Duneloom Puzzle',
     year: '2026',
@@ -85,6 +87,7 @@ export const projects: Project[] = [
   },
   {
     slug: 'versatile-hero',
+    video: '/versatile-hero/film.mp4',
     casePath: '/versatile-hero',
     title: 'Versatile Hero',
     year: '2026',
