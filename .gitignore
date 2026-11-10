@@ -39,3 +39,4 @@ __screenshots__/
 *.timestamp-*-*.mjs
 
 /public/duneloom/play/Build/WebPortfolio.data.unityweb
+/public/versatile-hero/play/Build/WebBeta.data.unityweb

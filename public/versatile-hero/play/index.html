@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' blob: data:; connect-src 'self' blob: data:; script-src 'self' blob: 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; object-src 'none'; frame-src 'none'; base-uri 'none'; form-action 'none'">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Versatile Hero Demo</title>
+  <style>
+    html, body { width: 100%; height: 100%; margin: 0; overflow: hidden; background: #141c21; }
+    #unity-canvas { display: block; width: 100%; height: 100%; touch-action: none; outline: none; }
+    #loading { position: fixed; inset: 0; display: grid; place-content: center; gap: 16px;
+      color: #e1e7eb; font: 16px system-ui, sans-serif; text-align: center; background: #141c21; }
+    #loading[hidden] { display: none; }
+    progress { width: min(280px, 75vw); accent-color: #cfb981; }
+    #status { max-width: min(480px, 85vw); overflow-wrap: anywhere; }
+    #fullscreen-button { position: fixed; top: max(8px, env(safe-area-inset-top));
+      left: max(8px, env(safe-area-inset-left)); z-index: 10; width: 40px; height: 40px;
+      display: grid; place-items: center; padding: 8px; border: 1px solid #cfb98199;
+      border-radius: 10px; background: #141c21cc; color: #e1e7eb; cursor: pointer;
+      touch-action: manipulation; }
+    #fullscreen-button:hover, #fullscreen-button:focus-visible { background: #293b43; outline: 2px solid #cfb981; }
+    #fullscreen-button[hidden] { display: none; }
+    #fullscreen-button svg { width: 22px; height: 22px; pointer-events: none; }
+    #fullscreen-message { position: fixed; top: calc(max(8px, env(safe-area-inset-top)) + 48px);
+      left: max(8px, env(safe-area-inset-left)); z-index: 10; max-width: min(300px, 80vw);
+      padding: 10px 12px; border-radius: 8px; background: #141c21ed;
+      color: #e1e7eb; font: 14px system-ui, sans-serif; pointer-events: none; }
+  </style>
+</head>
+<body>
+  <canvas id="unity-canvas" width="800" height="450" tabindex="0"></canvas>
+  <button hidden id="fullscreen-button" type="button" aria-label="Enter fullscreen" title="Enter fullscreen" aria-pressed="false">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+      <path d="M8 3H3v5M16 3h5v5M3 16v5h5M21 16v5h-5" />
+    </svg>
+  </button>
+  <div id="fullscreen-message" role="status" hidden></div>
+  <div id="loading" role="status"><div id="status">Loading Versatile Hero Demo…</div><progress id="progress" max="1" value="0"></progress></div>
+  <script src="Build/WebBeta.loader.js"></script>
+  <script>
+    const canvas = document.getElementById("unity-canvas");
+    const loading = document.getElementById("loading");
+    const status = document.getElementById("status");
+    const progress = document.getElementById("progress");
+    const fullscreenButton = document.getElementById("fullscreen-button");
+    const fullscreenMessage = document.getElementById("fullscreen-message");
+    const fullscreenRoot = document.documentElement;
+    const isPhone = /iPhone|Android.*Mobile|Windows Phone/i.test(navigator.userAgent);
+    fullscreenButton.hidden = !isPhone;
+    // iPadOS can identify as a Mac; keep automatic fullscreen off for the whole Apple family.
+    const isAppleDevice = /Mac|iPhone|iPad|iPod|visionOS/i.test(
+      navigator.userAgentData?.platform || navigator.platform || "")
+      || /\b(Macintosh|iPhone|iPad|iPod)\b/i.test(navigator.userAgent || "");
+    let fullscreenPending = false;
+    let enteredFullscreen = false;
+    let fullscreenMessageTimer;
+    const isFullscreen = () => Boolean(document.fullscreenElement || document.webkitFullscreenElement);
+    function syncFullscreen() {
+      const active = isFullscreen();
+      fullscreenButton.hidden = !isPhone || active;
+      enteredFullscreen ||= active;
+      fullscreenButton.setAttribute("aria-pressed", String(active));
+      const label = active ? "Exit fullscreen" : "Enter fullscreen";
+      fullscreenButton.setAttribute("aria-label", label);
+      fullscreenButton.title = label;
+      if (active) fullscreenMessage.hidden = true;
+    }
+    function showFullscreenMessage(message) {
+      clearTimeout(fullscreenMessageTimer);
+      fullscreenMessage.textContent = message;
+      fullscreenMessage.hidden = false;
+      fullscreenMessageTimer = setTimeout(() => { fullscreenMessage.hidden = true; }, 6000);
+    }
+    async function enterFullscreen(manual = false) {
+      if (!isPhone) return;
+      if (!manual && isAppleDevice) return;
+      if (isFullscreen() || fullscreenPending) return;
+      const request = fullscreenRoot.requestFullscreen || fullscreenRoot.webkitRequestFullscreen;
+      if (!request) {
+        if (manual) showFullscreenMessage("This browser does not support fullscreen. Try adding the game to your Home Screen.");
+        return;
+      }
+      fullscreenPending = true;
+      try {
+        await request.call(fullscreenRoot);
+        syncFullscreen();
+      } catch (_) {
+        // Automatic requests may be blocked until a real click or tap.
+        if (manual) showFullscreenMessage("Fullscreen is unavailable here. Try opening the game directly in your browser.");
+      } finally {
+        fullscreenPending = false;
+      }
+    }
+    fullscreenButton.addEventListener("click", async () => {
+      if (isFullscreen()) {
+        const exit = document.exitFullscreen || document.webkitExitFullscreen;
+        try { if (exit) await exit.call(document); } catch (_) { /* Keep the game usable. */ }
+      } else {
+        await enterFullscreen(true);
+      }
+      canvas.focus();
+    });
+    document.addEventListener("fullscreenchange", syncFullscreen);
+    document.addEventListener("webkitfullscreenchange", syncFullscreen);
+    // Retry once on the first game gesture; never force re-entry after the user exits.
+    document.addEventListener("pointerup", event => {
+      if (!enteredFullscreen && !fullscreenButton.contains(event.target)) enterFullscreen();
+    }, { once: true });
+    const config = {
+      arguments: [],
+      dataUrl: "Build/WebBeta.data.unityweb",
+      frameworkUrl: "Build/WebBeta.framework.js.unityweb",
+      codeUrl: "Build/WebBeta.wasm.unityweb",
+      streamingAssetsUrl: "StreamingAssets",
+      companyName: "DefaultCompany",
+      productName: "MazeBuilderNew",
+      productVersion: "0.14",
+      // Keep dense phone displays from multiplying fill-rate and render-target memory.
+      devicePixelRatio: Math.min(window.devicePixelRatio || 1, 1.5,
+        1920 / Math.max(window.innerWidth, window.innerHeight, 1)),
+      // AchievementProgressStore writes files under persistentDataPath.
+      autoSyncPersistentDataPath: true,
+      showBanner(message, type) {
+        if (type === "error") {
+          loading.hidden = false;
+          progress.hidden = true;
+          status.textContent = message;
+        } else {
+          console.warn(message);
+        }
+      }
+    };
+    // Each channel ships one DXT data file; no texture-variant manifest or probe context is needed.
+    createUnityInstance(canvas, config, value => { progress.value = value; })
+      .then(instance => {
+        window.unityInstance = instance;
+        loading.hidden = true;
+        canvas.focus();
+        if (!enteredFullscreen) enterFullscreen();
+      })
+      .catch(error => {
+        loading.hidden = false;
+        progress.hidden = true;
+        status.textContent = "Unable to start the game. Please reload the page. " + error;
+      });
+  </script>
+</body>
+</html>

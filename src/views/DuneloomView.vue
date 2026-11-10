@@ -33,6 +33,7 @@ const project = projects.find(p => p.slug === 'deep-sand-maze')!
     </div>
     <section>
       <h2>My role</h2>
+      <p class="role">{{ project.role }} · 3 months</p>
       <dl>
         <dt>Concept and prototype</dt><dd>I conceived the game and built the first playable prototype to test the tile-sliding mechanic. The client liked the prototype and funded development of the full game.</dd>
         <dt>Gameplay and UI</dt><dd>I designed the project architecture and led development of the entire game in Unity. I implemented tile sliding, waypoint navigation for the hero and enemies, and the game UI.</dd>
@@ -42,7 +43,6 @@ const project = projects.find(p => p.slug === 'deep-sand-maze')!
         <dt>Mobile optimization</dt><dd>I profiled the game on target devices and optimized graphics and visual effects, raising the frame rate from 12 to 30 FPS. I also reduced the game's size on disk.</dd>
         <dt>Gameplay capture</dt><dd>I recorded gameplay footage for promotional videos and ads.</dd>
         <dt>Store releases</dt><dd>I prepared the iOS build for the App Store and the Android build for Google Play, and helped the team publish the game on both stores.</dd>
-        <dt>Development time</dt><dd>3 months</dd>
       </dl>
     </section>
     <section><h2>Screenshots</h2><ProjectFilmstrip :images="project.images" /></section>
@@ -50,7 +50,8 @@ const project = projects.find(p => p.slug === 'deep-sand-maze')!
 </template>
 <style scoped>
 .case { padding-block: var(--space-8) var(--space-16); }
-.back { color: var(--text-muted); font-size: var(--text-sm); }
+.back, .role { color: var(--text-muted); font-size: var(--text-sm); }
+.role { margin-bottom: var(--space-6); }
 .intro { display: grid; grid-template-columns: minmax(0, 1fr) 38%; align-items: center; gap: var(--space-8); margin-top: var(--space-6); }
 header p:first-child { font: var(--text-xs) var(--font-mono); text-transform: uppercase; letter-spacing: .08em; color: var(--accent); }
 h1 { font-size: var(--text-2xl); margin: .3em 0; }

@@ -16,6 +16,7 @@ export interface ProjectImage {
 
 export interface Project {
   slug: string
+  casePath?: string
   title: string
   year: string
   role: string
@@ -29,6 +30,7 @@ export interface Project {
 export const projects: Project[] = [
   {
     slug: 'deep-sand-maze',
+    casePath: '/duneloom',
     title: 'Duneloom Puzzle',
     year: '2026',
     role: 'Lead Developer, Original Concept',
@@ -80,6 +82,31 @@ export const projects: Project[] = [
         href: 'https://play.google.com/store/apps/details?id=com.nomirage.deepsand',
       },
     ],
+  },
+  {
+    slug: 'versatile-hero',
+    casePath: '/versatile-hero',
+    title: 'Versatile Hero',
+    year: '2026',
+    role: 'Solo Developer, Game Design',
+    platforms: 'Android, Web',
+    tags: ['Unity', 'Adventure', 'Mobile', 'Game Design'],
+    description:
+      'A fantasy adventure with turn-based combat on an island you build tile by tile. The design challenge was making each tile matter: turn a piece one way to reach a treasure chest, or another to take on a quest or face an enemy. You explore three biomes and collect gear for the final boss. I pitched the playable prototype to the client, who funded the demo. Over three months, I designed the systems and levels, wrote the Unity code, and created the 3D models. A freelance designer used my wireframes to create the final UI.',
+    images: [
+      'The hero explores a clearing between autumn forest tiles',
+      'The hero faces the Goblin Chief in turn-based combat',
+      'A choice of three location tiles, with Troll Bridge highlighted',
+      'Quest markers and branching paths in a rocky biome',
+      'The equipment inventory with Magic Flower equipped',
+      'A health potion for sale at the Witch’s Hut',
+    ].map((alt, index) => ({
+      src: `/versatile-hero/${index + 1}.webp`,
+      alt,
+      width: 1280,
+      height: 720,
+    })),
+    links: [{ label: 'Google Play', href: 'https://play.google.com/store/apps/details?id=com.versatile.nomirage' }],
   },
   {
     slug: 'sidus-heroes-nidum',

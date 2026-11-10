@@ -1,0 +1,79 @@
+Versatile Hero / Maze Builder — selected audio credits
+Integrated selections: 2026-10-15
+
+CellClick.ogg (MOVE-A)
+Interface Sounds by Kenney — tick_001.ogg
+Source: https://kenney.nl/assets/interface-sounds
+License: CC0 1.0 — https://creativecommons.org/publicdomain/zero/1.0/
+
+EquipItem.ogg (EQUIP-A), UnequipItem.ogg (UNEQUIP-A)
+RPG Audio by Kenney — clothBelt.ogg, beltHandle2.ogg
+Source: https://kenney.nl/assets/rpg-audio
+License: CC0 1.0 — https://creativecommons.org/publicdomain/zero/1.0/
+
+CardSelected.ogg (CARD-H — softer paper movement)
+RPG Audio by Kenney Vleugels / Kenney — Audio/bookFlip2.ogg
+Source: https://kenney.nl/assets/rpg-audio
+License: CC0 1.0 — https://creativecommons.org/publicdomain/zero/1.0/
+Changes: original package OGG slowed to 0.90 speed and pitch; high-pass 150 Hz, low-pass 2200 Hz; excerpt starts at 0.03791 seconds after processing, duration 0.45 seconds; 45 ms fade-in, final 180 ms fade-out; peak adjusted to 0.28; stereo 44.1 kHz OGG Vorbis q5. No added impacts, reverb or ringing layers.
+Playback: CardSelected SoundData volume 0.5. The game file contains the original prepared CARD-H; the half-volume GDService preview is a separate file, so the gain reduction is applied once.
+
+Drink.ogg (DRINK-A, first 0.5 seconds)
+Water_Drink.wav by Q.K.
+Source: https://freesound.org/people/Q.K./sounds/56270/
+License: CC0 1.0 — https://creativecommons.org/publicdomain/zero/1.0/
+Changes: publicly supplied HQ MP3 preview converted to OGG Vorbis; excerpt 0.000–0.500 seconds; final 10 milliseconds faded out to avoid a cut click.
+
+AcidSpit.ogg (ACID-B)
+40 CC0 water / splash / slime SFX by rubberduck — slime_07.ogg
+Source: https://opengameart.org/content/40-cc0-water-splash-slime-sfx
+License: CC0 1.0 — https://creativecommons.org/publicdomain/zero/1.0/
+
+PrayerRest.ogg (PRAYER-A; used for prayer and tavern rest)
+8 Heals and Buffs SFX by leohpaz — 02_Heal_02.wav
+Source: https://opengameart.org/content/8-heals-and-buffs-sfx
+License: Creative Commons Attribution 4.0 International (CC BY 4.0)
+https://creativecommons.org/licenses/by/4.0/
+Changes: converted to OGG Vorbis for this project; imported as mono; gameplay playback volume adjusted. Original pitch and timing preserved. No endorsement by the original author is implied.
+
+Other selected clips were converted to OGG Vorbis for audition, imported as mono and assigned per-event playback volumes without changing their pitch or timing.
+Retain these author, source, license and modification notices when distributing the audio with the game.
+
+InvalidCellClick.ogg (INVALID-D)
+3 knocks by veronicalyn
+Source: https://freesound.org/people/veronicalyn/sounds/488978/
+License: CC0 1.0 — https://creativecommons.org/publicdomain/zero/1.0/
+Changes: publicly supplied Freesound HQ MP3 preview converted to OGG; first knock after removing initial silence, 0.18 seconds; low-pass at 1 kHz, volume x0.45, soft edges; imported as mono, gameplay volume adjusted.
+
+GameDefeat.ogg (DEFEAT-D)
+Failed Quest Stinger 01 - Dark Dissonant Orchestra by TommasoMotteran / Coghezzi
+Credit: Coghezzi - Freesound.org
+Source: https://freesound.org/people/TommasoMotteran/sounds/858212/
+License: Creative Commons Attribution 4.0 International (CC BY 4.0)
+https://creativecommons.org/licenses/by/4.0/
+Changes: publicly supplied Freesound HQ MP3 preview converted to OGG; first 2.8 seconds of the six-second original, final 0.75 seconds faded out; imported as mono, gameplay volume adjusted. No endorsement by the original author is implied.
+
+PoisonDamage.ogg (POISON-C)
+Sizzle / Acid Burn by bottles
+Source: https://freesound.org/people/bottles/sounds/382313/
+License: CC0 1.0 — https://creativecommons.org/publicdomain/zero/1.0/
+Changes: publicly supplied Freesound HQ MP3 preview converted to OGG; first active excerpt after initial silence, 1.3 seconds, high-pass at 200 Hz and soft edges; imported as mono, gameplay volume adjusted.
+
+NewGame.ogg (NG-E, "Dense short impact")
+Deep Cinematic Impact by MeijstroAudio
+Source: https://freesound.org/people/MeijstroAudio/sounds/377303/
+License: Creative Commons Attribution 4.0 International (CC BY 4.0)
+https://creativecommons.org/licenses/by/4.0/
+Changes: publicly supplied Freesound HQ MP3 preview converted to OGG; first 1.8 seconds, high-pass at 25 Hz, low-pass at 1000 Hz, 3 ms fade-in and final 0.35 seconds faded out. Stereo channels, pitch and tempo preserved; gameplay playback volume adjusted. No endorsement by the original author is implied.
+
+CoinLoot.ogg (COINS-C, first single hit)
+Coins by altfuture
+Source: https://freesound.org/people/altfuture/sounds/174629/
+License: CC0 1.0 — https://creativecommons.org/publicdomain/zero/1.0/
+Changes: source HQ MP3 preview processed into COINS-C (high-pass 180 Hz, low-pass 5200 Hz, first hit extracted at 0.16662 s, 140 ms, soft edges). Only the first 0.14 seconds of that candidate are used in-game, with an additional final 10 ms fade. OGG Vorbis q5, stereo 44.1 kHz; pitch and speed unchanged. SoundData playback volume 0.5.
+
+DungeonReveal.ogg (DUNGEON-E)
+Falling Rock.wav by spookymodem + Woosh by florianreichelt
+Sources: https://freesound.org/people/spookymodem/sounds/202098/ and https://freesound.org/people/florianreichelt/sounds/683096/
+License: both CC0 1.0 — https://creativecommons.org/publicdomain/zero/1.0/
+Changes: publicly supplied HQ MP3 previews combined into a muffled rock-and-air effect. Rocks pitched/slowed to 0.80, high-pass 35 Hz, low-pass 1600 Hz, delayed 0.10 s. Air pitched/slowed to 0.90, high-pass 180 Hz, low-pass 3400 Hz. From the composite, a 0.6-second excerpt starts at 0.04 s, with 8 ms fade-in and 150 ms fade-out. Stereo OGG Vorbis q5, 44.1 kHz. SoundData playback volume 0.3.
