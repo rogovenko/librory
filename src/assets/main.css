@@ -97,3 +97,22 @@
     transform: none;
   }
 }
+
+.action-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--space-1) var(--space-3);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  background: var(--accent-soft);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+}
+
+.action-pill:hover {
+  border-color: var(--accent);
+  color: var(--text);
+}

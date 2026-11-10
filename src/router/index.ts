@@ -4,6 +4,7 @@ import HomeView from '../views/HomeView.vue'
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
+    { path: '/duneloom', component: () => import('../views/DuneloomView.vue') },
     {
       path: '/',
       name: 'home',

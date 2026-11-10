@@ -37,3 +37,5 @@ __screenshots__/
 
 # Vite
 *.timestamp-*-*.mjs
+
+/public/duneloom/play/Build/WebPortfolio.data.unityweb

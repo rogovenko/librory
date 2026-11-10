@@ -53,7 +53,10 @@ const isPortraitSet = computed(
         </div>
       </dl>
 
-      <p v-if="project.links.length" class="links">
+      <p v-if="project.slug === 'deep-sand-maze'" class="links">
+        <RouterLink class="action-pill" to="/duneloom">View case study →</RouterLink>
+      </p>
+      <p v-else-if="project.links.length" class="links">
         <a
           v-for="link in project.links"
           :key="link.href"

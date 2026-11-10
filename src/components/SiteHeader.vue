@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { onMounted, onUnmounted, ref } from 'vue'
-import ThemeToggle from './ThemeToggle.vue'
 import { profile } from '@/data/profile'
 
 const scrolled = ref(false)
@@ -22,15 +21,13 @@ onUnmounted(() => {
 <template>
   <header class="header" :class="{ 'header-scrolled': scrolled }">
     <div class="header-inner container">
-      <a href="#top" class="brand">{{ profile.name }}</a>
+      <a href="/#top" class="brand">{{ profile.name }}</a>
 
       <nav class="nav" aria-label="Sections">
-        <a href="#work">Work</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
+        <a href="/#work">Work</a>
+        <a href="/#about">About</a>
+        <a href="/#contact">Contact</a>
       </nav>
-
-      <ThemeToggle />
     </div>
   </header>
 </template>

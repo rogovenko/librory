@@ -12,8 +12,8 @@
       name="description"
       content="Portfolio of Librory — full-stack game developer focused on Unity and JavaScript."
     />
-    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
-    <meta name="theme-color" content="#191918" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#191918" />
+    <meta name="color-scheme" content="dark" />
 
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Librory — Game Developer" />
@@ -22,12 +22,6 @@
       content="Portfolio of Librory — full-stack game developer focused on Unity and JavaScript."
     />
 
-    <script>
-      // Applied before paint so the page never flashes the wrong theme.
-      const stored = localStorage.getItem('librory-theme')
-      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
-      document.documentElement.dataset.theme = stored ?? (prefersDark ? 'dark' : 'light')
-    </script>
   </head>
   <body>
     <div id="app"></div>

@@ -29,7 +29,7 @@ export interface Project {
 export const projects: Project[] = [
   {
     slug: 'deep-sand-maze',
-    title: 'Deep Sand Puzzle',
+    title: 'Duneloom Puzzle',
     year: '2026',
     role: 'Lead Developer, Original Concept',
     platforms: 'iOS, Android',
@@ -39,37 +39,37 @@ export const projects: Project[] = [
     images: [
       {
         src: '/projects/sand/maze1.webp',
-        alt: 'Deep Sand Puzzle — lobby with the hooded hero and GO button',
+        alt: 'Duneloom Puzzle — lobby with the hooded hero and GO button',
         width: 662,
         height: 1440,
       },
       {
         src: '/projects/sand/maze2.webp',
-        alt: 'Deep Sand Puzzle — cave maze level with a treasure chest objective',
+        alt: 'Duneloom Puzzle — cave maze level with a treasure chest objective',
         width: 662,
         height: 1440,
       },
       {
         src: '/projects/sand/maze3.webp',
-        alt: 'Deep Sand Puzzle — maze worlds map screen for Ancient Temple',
+        alt: 'Duneloom Puzzle — maze worlds map screen for Ancient Temple',
         width: 662,
         height: 1440,
       },
       {
         src: '/projects/sand/maze4.webp',
-        alt: 'Deep Sand Puzzle — rotating maze tiles to open a path',
+        alt: 'Duneloom Puzzle — rotating maze tiles to open a path',
         width: 662,
         height: 1440,
       },
       {
         src: '/projects/sand/maze5.webp',
-        alt: 'Deep Sand Puzzle — pathfinding past an enemy on the board',
+        alt: 'Duneloom Puzzle — pathfinding past an enemy on the board',
         width: 662,
         height: 1440,
       },
       {
         src: '/projects/sand/maze6.webp',
-        alt: 'Deep Sand Puzzle — palace maze with guards, traps and chests',
+        alt: 'Duneloom Puzzle — palace maze with guards, traps and chests',
         width: 662,
         height: 1440,
       },
