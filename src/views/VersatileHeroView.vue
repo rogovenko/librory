@@ -23,7 +23,7 @@ const project = projects.find(({ slug }) => slug === 'versatile-hero')!
     </header>
 
     <video controls playsinline preload="none" width="1920" height="1080"
-      poster="/versatile-hero/1.webp" src="/versatile-hero/film.mp4"
+      :poster="project.videoPoster?.src" :src="project.video"
       aria-label="Versatile Hero gameplay and development overview"></video>
 
     <section>

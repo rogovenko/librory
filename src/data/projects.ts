@@ -17,6 +17,7 @@ export interface ProjectImage {
 export interface Project {
   slug: string
   video?: string
+  videoPoster?: ProjectImage
   casePath?: string
   title: string
   year: string
@@ -88,6 +89,12 @@ export const projects: Project[] = [
   {
     slug: 'versatile-hero',
     video: '/versatile-hero/film.mp4',
+    videoPoster: {
+      src: '/versatile-hero/poster.webp',
+      alt: 'Versatile Hero — the knight stands on a cliff overlooking the sea at sunset',
+      width: 1280,
+      height: 720,
+    },
     casePath: '/versatile-hero',
     title: 'Versatile Hero',
     year: '2026',

@@ -7,14 +7,18 @@ import type { ProjectImage } from '@/data/projects'
 
 const props = defineProps<{
   video?: string
+  videoPoster?: ProjectImage
   images: ProjectImage[]
 }>()
 
 const activeIndex = ref(0)
 const galleryEl = ref<HTMLElement | null>(null)
 
-const hasMultiple = computed(() => props.images.length > 1)
-const activeImage = computed(() => props.images[activeIndex.value])
+const slides = computed(() => props.video && props.videoPoster
+  ? [props.videoPoster, ...props.images]
+  : props.images)
+const hasMultiple = computed(() => slides.value.length > 1)
+const activeImage = computed(() => slides.value[activeIndex.value])
 
 const warmed = new Set<string>()
 
@@ -27,11 +31,10 @@ function warm(src: string) {
 
 /** Prefetch the current slide and its neighbours so the next click is instant. */
 function warmAround(index: number) {
-  if (!props.images.length) return
-
-  const length = props.images.length
+  const length = slides.value.length
+  if (!length) return
   for (const offset of [0, 1, -1]) {
-    const image = props.images[(index + offset + length) % length]
+    const image = slides.value[(index + offset + length) % length]
     if (image) warm(image.src)
   }
 }
@@ -67,7 +70,7 @@ watch(activeIndex, (index) => {
 
 function next() {
   if (!hasMultiple.value) return
-  activeIndex.value = (activeIndex.value + 1) % props.images.length
+  activeIndex.value = (activeIndex.value + 1) % slides.value.length
 }
 
 function goTo(index: number) {
@@ -92,7 +95,7 @@ function onStageKeydown(event: KeyboardEvent) {
       :tabindex="hasMultiple ? 0 : undefined"
       :aria-label="
         hasMultiple
-          ? `Screenshot ${activeIndex + 1} of ${images.length}, click for next`
+          ? `${activeImage?.alt}. Show next slide`
           : undefined
       "
       @click="next"
@@ -101,16 +104,16 @@ function onStageKeydown(event: KeyboardEvent) {
       <ProjectMedia v-if="activeImage" :image="activeImage" />
     </div>
 
-    <div v-if="hasMultiple" class="nav" role="tablist" aria-label="Screenshots">
+    <div v-if="hasMultiple" class="nav" role="tablist" :aria-label="video ? 'Video and screenshots' : 'Screenshots'">
       <button
-        v-for="(image, index) in images"
+        v-for="(image, index) in slides"
         :key="image.src"
         type="button"
         role="tab"
         class="nav-dot"
         :class="{ 'nav-dot-active': index === activeIndex }"
         :aria-selected="index === activeIndex"
-        :aria-label="`Show screenshot ${index + 1} of ${images.length}`"
+        :aria-label="video && index === 0 ? 'Show gameplay video' : `Show screenshot: ${image.alt}`"
         @click="goTo(index)"
       >
         <DiamondMark :size="9" :filled="index === activeIndex" />
