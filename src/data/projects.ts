@@ -228,7 +228,7 @@ export const projects: Project[] = [
     year: '2025',
     role: 'Lead Developer',
     platforms: 'Web, Android',
-    tags: ['Unity 6', 'Management Simulator', 'Private client'],
+    tags: ['Unity', 'Management Simulator', 'Private client'],
     description:
       'A management sim about running a gold-mining complex, in the spirit of Fallout Shelter. The hard part was building it from scratch in three months — a team of three, and I was the only developer. We shipped on Unity for Web first, with Android as a second target, and managed to hit the deadline with a polished game that met the client’s brief.',
     images: [
@@ -258,5 +258,25 @@ export const projects: Project[] = [
       },
     ],
     links: [],
+  },
+  {
+    slug: 'ruby-hole',
+    casePath: '/ruby-hole',
+    video: '/ruby-hole/film.mp4',
+    title: 'Ruby Hole',
+    year: '2025',
+    role: 'Game Developer',
+    platforms: 'Itch.io',
+    tags: ['JavaScript', 'Phaser', 'Puzzle', 'Gamejam'],
+    description:
+      'We made Ruby Hole in three days for Ludum Dare 57. You lay tunnel tiles to help two dwarves reach buried rubies, a mechanic inspired by Carcassonne. I programmed the game in Phaser.',
+    images: [
+      { src: '/ruby-hole/1.webp', alt: 'Two dwarves above a branching mine with mushroom caves', width: 1438, height: 1080 },
+      { src: '/ruby-hole/2.webp', alt: 'A dwarf holding a torch talks to his mining partner', width: 1440, height: 1079 },
+      { src: '/ruby-hole/3.webp', alt: 'Connected tunnels winding between clusters of purple mushrooms', width: 1440, height: 1046 },
+      { src: '/ruby-hole/4.webp', alt: 'The tunnels reach a layer of amber rock', width: 1436, height: 1080 },
+      { src: '/ruby-hole/5.webp', alt: 'A network of tunnels deep in the red caverns', width: 1438, height: 1080 },
+    ],
+    links: [{ label: 'Play on itch.io', href: 'https://epiclogo.itch.io/ruby-hole' }],
   },
 ]

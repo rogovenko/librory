@@ -22,7 +22,7 @@ const isPortraitSet = computed(
 </script>
 
 <template>
-  <article v-reveal class="project">
+  <article :id="project.slug" v-reveal class="project">
     <ProjectFilmstrip v-if="isPortraitSet" :images="project.images" :video="project.video" />
     <ProjectGallery v-else :images="project.images" :video="project.video" />
 

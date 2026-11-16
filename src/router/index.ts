@@ -6,6 +6,7 @@ const router = createRouter({
   routes: [
     { path: '/duneloom', component: () => import('../views/DuneloomView.vue') },
     { path: '/versatile-hero', component: () => import('../views/VersatileHeroView.vue') },
+    { path: '/ruby-hole', component: () => import('../views/RubyHoleView.vue') },
     {
       path: '/',
       name: 'home',
