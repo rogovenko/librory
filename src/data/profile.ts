@@ -36,11 +36,6 @@ export const profile: Profile = {
   ],
   facts: [
     {
-      label: 'Stack',
-      value:
-        'Unity · PlayCanvas · Babylon.js · Three.js · Phaser · Node.js · Express · PostgreSQL · Redis',
-    },
-    {
       label: 'Focus',
       value: 'Unity · Web · Mobile · Multiplayer · Backend',
     },
@@ -53,6 +48,7 @@ export const profile: Profile = {
   ],
   email: 'hello@librory.org',
   links: [
+    { label: 'Upwork', href: 'https://www.upwork.com/freelancers/librory' },
     { label: 'GitHub', href: 'https://github.com/rogovenko' },
     { label: 'itch.io', href: 'https://librory.itch.io/' },
     { label: 'LinkedIn', href: 'https://www.linkedin.com/in/rogovenko/' },
