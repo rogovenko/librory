@@ -22,6 +22,13 @@ const upwork = profile.links.find(({ label }) => label === 'Upwork')!
           <DiamondMark :size="6" class="mark" />
           {{ profile.availabilityNote }}
         </p>
+        <a class="contact-link" href="#contact">
+          Contact
+          <svg viewBox="0 0 12 12" width="10" height="10" aria-hidden="true">
+            <path d="M6 2v8M2.5 6.5 6 10l3.5-3.5" fill="none" stroke="currentColor"
+              stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </a>
         <a class="upwork-link" :href="upwork.href" target="_blank" rel="noopener noreferrer"
           aria-label="Upwork profile (opens in a new tab)">
           <span class="upwork-logo" :innerHTML="upworkLogo" aria-hidden="true"></span>
@@ -67,7 +74,7 @@ const upwork = profile.links.find(({ label }) => label === 'Upwork')!
   margin-top: var(--space-8);
 }
 
-.availability, .upwork-link {
+.availability, .contact-link, .upwork-link {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -85,7 +92,7 @@ const upwork = profile.links.find(({ label }) => label === 'Upwork')!
   padding: var(--space-1) var(--space-3);
 }
 
-.upwork-link:hover {
+.contact-link:hover, .upwork-link:hover {
   border-color: var(--accent);
   color: var(--text);
 }
